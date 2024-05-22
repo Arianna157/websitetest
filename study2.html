@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        
+        
+        #scratchProject {background-color: white; color: black;}
+        .mycontainer {display: flex;}
+        .mycontainer > div {width: 50%;}
+        .mycontainer2 {display: flex;}
+        .mycontainer2 > div {width:33.3%}
+        #studymusic {background-color:rgb(0, 0, 0);}
+        #resources {background-color: lightskyblue;}
+        #methods {background-color: lightpink;}
+
+        .overlay{
+        height: 100%;
+        width: 0;
+        position:fixed;
+        z-index:1;
+        left:0;
+        top:0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+        overflow-x:hidden;
+        transition:0.5s;
+    }
+
+    .overlay-content{
+        position: relative;
+        top:25%;
+        width:100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a{
+        padding:8px;
+        text-decoration: none;
+        font-size:36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+        position:absolute;
+        top:20px;
+        left:45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a{font-size: 20px;}
+        .overlay .closebtn {
+            font-size: 40px;
+            top:15px;
+            left:35px;
+        }
+    }
+
+    #menubutton {position: absolute; left: 20px; top: 20px; padding: 8px;}
+
+
+    .menucontainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;}
+
+.responsive-iframe{
+    position: absolute;
+            
+    top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="myNav" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn"
+        onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+            <a href="index.html">Home</a>
+            <a href="breathe.html">Breathe</a>
+            <a href="play.html">Play</a>
+            <a href="testreflect5.html">Reflect</a>
+            <a href="study2.html">Study</a>
+        </div>
+    </div>
+    
+    <div class="menucontainer" id="menubutton" onclick="openNav()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+     
+      <div style="background-image: url(desk.jpg); background-repeat: no-repeat; background-size: cover;">
+        <br>
+        <br>
+        <br>
+   <h1 style="color: white;">Study</h1> 
+   <br>
+   <br>
+   <br>
+   </div>
+
+   <div id="scratchProject">
+    <br>
+    <p>*I didn't make this*</p>
+    <p>Made by @fluffkeys on Scratch with a few things fixed and added by me and the paper recipe art by Olivia </p>
+    <p>Original link: <a href="scratch.mit.edu/projects/944138602">scratch.mit.edu/projects/944138602</a> </p>
+    <p>Tip - You can only add 4 short tasks, as they glitch sometimes</p>
+    <br>
+   
+    <iframe src="https://scratch.mit.edu/projects/993935134/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+   <br>
+   <br>
+    </div>
+
+    <div class="mycontainer">
+
+        <div id="resources">
+<h3> Study resources</h3>
+<p><a href="https://www.bbc.co.uk/bitesize/learn" target="_blank">Revision help</a></p>
+<p><a href="https://quizlet.com/" target="_blank">Quizlet</a></p>
+<p><a href="https://corbettmaths.com/" target="_blank">Maths</a></p>
+<p><a href="https://www.britannica.com/" target="_blank">Encyclopedia</a></p>
+<p><a href="https://studyit.govt.nz/" target="_blank">Study it</a></p>
+<p><a href="https://studytime.co.nz/" target="_blank">Studytime</a></p>
+        </div>
+
+        <div id="methods">
+            <h3>Study help</h3>
+            <p><a href="http://www.educationplanner.org/students/self-assessments/learning-styles.shtml" target="_blank">Learning styles quiz</a></p>
+            <p><a href="https://www.bbc.co.uk/bitesize/articles/zvmxnk7" target="_blank">Time management</a></p>
+            <p><a href="https://www.bbc.co.uk/bitesize/articles/z6pv3k7#z3gwqfr" target="_blank">How to revise</a></p>
+            <p><a href="https://assessment.tki.org.nz/Assessment-tools-resources/Study-and-exam-techniques" target="_blank">Study and exam techniques</a></p>
+            <p><a href="https://www2.nzqa.govt.nz/">NZQA</a> </p>
+            <p><a href="https://theeducationhub.org.nz/supporting-students-to-develop-effective-study-skills/" target="_blank">Study skills</a></p>
+        </div>
+    </div>
+ 
+  <div id="studymusic">
+    <br>
+    <h3 style="color: white;">Study music</h3>
+    <br>
+    <div class="mycontainer2">
+        
+<br>
+<br>
+        <div id="studymusic1" class="container">
+            <iframe class="responsive-iframe"  src="https://www.youtube.com/embed/sjkrrmBnpGE" title="Ambient Study Music To Concentrate - 4 Hours of Music for Studying, Concentration and Memory" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div id="studymusic2" class="container">
+            <iframe class="responsive-iframe"  src="https://www.youtube.com/embed/i43tkaTXtwI" title="Best of lofi hip hop 2022 🎆 - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div id="studymusic3" class="container">
+            <iframe class="responsive-iframe"  src="https://www.youtube.com/embed/buqt6_CjtuI" title="Rain Sounds + Stream for Sleep, Focus, Studying | 4K Nature Video White Noise 10 Hours" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+    </div>
+
+</div>
+  
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width ="100%";
+       }
+
+       function closeNav(){
+        document.getElementById("myNav").style.width="0%";
+       }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .container {position:relative; width: 100%; border: outset 2px black;}
+.button {display:block; width:100%; height: 150px; background-color: white; }
+.overlay {position:absolute; bottom: 100%; left: 0; right: 0; background-color: black; overflow: hidden; width: 100%; height: 0; transition: .5s ease; opacity: 0.7; color: white;}
+.container:hover .overlay {bottom:0; height:100%}
+.text {white-space: nowrap; font-size: 20px; position: absolute; overflow: hidden; top: 50%; left:50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);}
+.column {flex: 25%; padding: 5px;}
+.row {display: flex;}
+        
+
+.overlay2{
+        height: 100%;
+        width: 0;
+        position:fixed;
+        z-index:1;
+        left:0;
+        top:0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+        overflow-x:hidden;
+        transition:0.5s;
+    }
+
+    .overlay2-content{
+        position: relative;
+        top:25%;
+        width:100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay2 a{
+        padding:8px;
+        text-decoration: none;
+        font-size:36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay2 a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay2 .closebtn {
+        position:absolute;
+        top:20px;
+        left:45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a{font-size: 20px;}
+        .overlay .closebtn {
+            font-size: 40px;
+            top:15px;
+            left:35px;
+        }
+    }
+
+    #menubutton {position: absolute; left: 20px; top: 20px; padding: 8px;}
+
+
+    .menucontainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #000000;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+hr {width: 50%; height: 5px; background-color: black; border: none;}
+    </style>
+</head>
+<body>
+    <div id="myNav" class="overlay2">
+
+        <a href="javascript:void(0)" class="closebtn"
+        onclick="closeNav()">&times;</a>
+
+        <div class="overlay2-content">
+            <a href="index.html">Home</a>
+            <a href="breathe.html">Breathe</a>
+            <a href="play.html">Play</a>
+            <a href="testreflect5.html">Reflect</a>
+            <a href="study2.html">Study</a>
+        </div>
+    </div>
+    
+    <div class="menucontainer" id="menubutton" onclick="openNav()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <div id="heading" style="background-image: url(amusement.png); background-repeat: no-repeat; background-size: cover;">
+        <br>
+        <br>
+    <h1>Play</h1>
+    <hr>
+    <h3>Click the buttons to play different games!</h3>
+<br>
+
+</div>
+
+    <div id="games">
+
+
+        <div class="row">
+        <div class="column">
+    <div class="container">
+        <button class="button">Decorate a bedroom</button>
+        <div class="overlay">
+            <a href="play2.html" ><button class="button" style="background-color: purple; color: white;">Decorate a bedroom</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+       <button class="button">Bake a cookie</button>
+        <div class="overlay">
+            <a href="play4.html"><button class="button" style="background-color: brown; color: white;">Bake a cookie</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Instrument personality quiz</button>
+        <div class="overlay">
+            <a href="play5.html"><button class="button" style="background-color: blue; color: white;">Instrument personality quiz</button></a>
+        </div>
+    </div>
+    </div>
+
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Manage a restraunt</button>
+        <div class="overlay">
+            <a href="play3.html"><button class="button" style="background-color: orangered; color: white;">Manage a restraunt</button></a>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="column">
+    <div class="container">
+<button class="button">Candy clicker</button>
+        <div class="overlay">
+            <a href="play6.html"><button class="button" style="background-color:darkviolet; color: white;">Candy clicker</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Tetris</button>
+        <div class="overlay">
+            <a href="play7.html"><button class="button" style="background-color: red; color: white;">Tetris</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Jelly jump</button>
+        <div class="overlay">
+            <a href="play8.html"><button class="button" style="background-color: green; color: white;">Jelly jump</button></a>
+        </div>
+    </div>
+    </div>
+
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Make festival food</button>
+        <div class="overlay">
+            <a href="play9.html"><button class="button" style="background-color:rgb(255, 162, 0); color: white;">Make festival food</button></a>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    <br>
+
+    <div class="row">
+        <div class="column">
+    <div class="container">
+<button class="button">Wall runner</button>
+        <div class="overlay">
+            <a href="play10.html"><button class="button" style="background-color:navy; color: white;">Wall runner</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">2048</button>
+        <div class="overlay">
+            <a href="play11.html"><button class="button" style="background-color:magenta; color: white;">2048</button></a>
+        </div>
+    </div>
+    </div>
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Snake</button>
+        <div class="overlay">
+            <a href="play12.html"><button class="button" style="background-color:crimson; color: white;">Snake</button></a>
+        </div>
+    </div>
+    </div>
+
+
+
+    
+        <div class="column">
+    <div class="container">
+        <button class="button">Make music</button>
+        <div class="overlay">
+            <a href="play13.html"><button class="button" style="background-color:rgb(141, 82, 10); color: white;">Make music</button></a>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function openNav() {
+        document.getElementById("myNav").style.width ="100%";
+       }
+
+       function closeNav(){
+        document.getElementById("myNav").style.width="0%";
+       }
+    </script>
+
+
+
+    
+</div>
+</body>
+</html>

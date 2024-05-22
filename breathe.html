@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathe</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+       <style>
+        body{background-color: white; color: black;}
+        
+        .mycontainer {display: flex;}
+        .mycontainer > div {width: 50%;}
+        .button {background-color: black; color: white; padding: 10px 30px; border-radius: 8px; }
+       .button:hover {background-color: white; color: black;}
+       hr {width: 50%; height: 5px; background-color: black; border: none;}
+        
+        .container {
+            display: none; 
+            position:relative;
+            overflow:hidden;
+            width:100%;
+            padding-top:56.25%;
+        }
+        .responsive-iframe{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            width:100%;
+            height:100%;
+        }
+        .responsive {width: 100%; height: auto;}
+
+        .overlay{
+        height: 100%;
+        width: 0;
+        position:fixed;
+        z-index:1;
+        left:0;
+        top:0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+        overflow-x:hidden;
+        transition:0.5s;
+    }
+
+    .overlay-content{
+        position: relative;
+        top:25%;
+        width:100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a{
+        padding:8px;
+        text-decoration: none;
+        font-size:36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+        position:absolute;
+        top:20px;
+        left:45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a{font-size: 20px;}
+        .overlay .closebtn {
+            font-size: 40px;
+            top:15px;
+            left:35px;
+        }
+    }
+
+    #menubutton {position: absolute; left: 20px; top: 20px; padding: 8px;}
+
+
+    .menucontainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+       </style>
+</head>
+<body>
+    <div id="myNav" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn"
+        onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+            <a href="index.html">Home</a>
+            <a href="breathe.html">Breathe</a>
+            <a href="play.html">Play</a>
+            <a href="testreflect5.html">Reflect</a>
+            <a href="study2.html">Study</a>
+        </div>
+    </div>
+    
+    <div class="menucontainer" id="menubutton" onclick="openNav()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+    <div id="div1" style="background-image: url(sunsetmountain.jpg);">
+        <br>
+        
+        <br>
+    <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Breathe</h1>
+    <hr>
+    <h3>A place for you to calm down and relax</h3>
+    <br>
+</div>
+    <br>
+    
+
+  
+        <h3 >Listen to some nature sounds and relax</h3>
+    </div>
+        <div id="buttons">
+            <br>
+        <button class="button" onclick="birds()">Birdsong</button>
+        
+        <button class="button" onclick="rain()">Rain</button>
+        
+        <button class="button" onclick="river()">River</button>
+        
+        <button class="button" onclick="snow()">Snow</button>
+        
+        <button class="button" onclick="fire()">Fire</button>
+    </div>
+    
+    <br>
+    <div class="container" id="birds">
+        <iframe    class="responsive-iframe" src="https://www.youtube.com/embed/rV_ERKtNyNA" title="8 Hours of Beautiful Birds (No Music) 4K Nature Relaxation™ - Washington State" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        
+        
+   </div>
+
+   <div class="container"  id="river">
+    <iframe    class="responsive-iframe" src="https://www.youtube.com/embed/F1gK85IEeDI" title="10 HOURS Morning Bird Songs and River Sounds for the Best Start of the Day - Morning River 4K UHD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   </div>
+
+   <div class="container" id="snow">
+    <iframe    class="responsive-iframe" src="https://www.youtube.com/embed/7BrIJrjxVxA" title="Blizzard Sounds for Sleep, Relaxation &amp; Staying Cool | Snowstorm Sounds &amp; Howling Wind in the Forest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   </div>
+
+   <div class="container"id="rain">
+    <iframe    class="responsive-iframe" src="https://www.youtube.com/embed/J4d-a7dVtiQ" title="【2M VIEWS】 Soothing Rain Sounds🌧️ | Come in to the bed and close your eyes to feel the rain😴" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" id="fire">
+        <iframe   class="responsive-iframe" src="https://www.youtube.com/embed/VGlYxtkZUXI" title="Cozy Campfire 🔥 Relaxing Fireplace Sounds 🔥 Burning Fireplace &amp; Crackling Fire Sounds (NO MUSIC)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    </div>
+    
+
+    <div id="div3">
+        <h3>Draw out your emotions</h3>
+        <br>
+        <iframe src="https://scratch.mit.edu/projects/563461266/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+        
+    </div>
+
+    <div id="div4">
+
+    </div>
+<br>
+    <div id="div5" class="mycontainer">
+        <div id="senses">
+            <h3>The 54321 method</h3>
+            <p>Take your time and breathe deeply as you slowly go through this anxiety exercise</p>
+            <br>
+            <p>1.  Focus On 5 Things You Can See</p>
+            <p>2. Focus On 4 Things You Can Touch</p>
+            <p>3. Focus On 3 Things You Can Hear</p>
+            <p>4. Focus On 2 Things You Can Smell</p>
+            <p>5. Focus On 1 Thing You Can Taste</p>
+        </div>
+
+        <div>
+            <img src="sittingcat.jpg" class="responsive">
+        </div>
+    </div>
+
+    <div id="div6" class="mycontainer">
+        <div>
+            <img src="breathing.jpg" class="responsive">
+        </div>
+
+        <div>
+            <h3>Breathing exercise</h3>
+            <p>Try this for a few minutes to calm down</p>
+            <p>Go outside or find a quiet place for this activity</p>
+            <p>Change the seconds to whatever suits you</p>
+            <br>
+            <p>1. Breathe in for 4 seconds</p>
+            <p>2. Hold your breath for 7 seconds</p>
+            <p>3. Breathe out for 8 seconds</p>
+        </div>
+    </div>
+
+    <div id="div7" class="mycontainer">
+        <div>
+            <h3>Mindfullness activites</h3>
+            <p>Try out some of these activities</p>
+            <p>- Go outside, listen to the birds and look at the nature</p>
+            <p>- Go on a walk or a run</p>
+            <p>- Try painting, crocheting, doodling or colouring</p>
+            <p>- Listen to music or play an instrument</p>
+            <p>- Start a journal</p>
+            <p>- Do some gardening or cooking</p>
+            <p>- Find a good book to read</p>
+        </div>
+        <div>
+            <img src="peace.jpg" class="responsive">
+        </div>
+    </div>
+
+
+    <script>
+        
+        function birds() {
+            document.querySelector("#birds").style.display = "block";
+            document.querySelector("#river").style.display = "none";
+            document.querySelector("#fire").style.display = "none";
+            document.querySelector("#snow").style.display = "none";
+            document.querySelector("#rain").style.display = "none";
+        }
+
+        function river() {
+            document.querySelector("#birds").style.display = "none";
+            document.querySelector("#river").style.display = "block";
+            document.querySelector("#fire").style.display = "none";
+            document.querySelector("#snow").style.display = "none";
+            document.querySelector("#rain").style.display = "none";
+        }
+
+        function rain() {
+            document.querySelector("#birds").style.display = "none";
+            document.querySelector("#river").style.display = "none";
+            document.querySelector("#fire").style.display = "none";
+            document.querySelector("#snow").style.display = "none";
+            document.querySelector("#rain").style.display = "block";
+        }
+
+        function fire() {
+            document.querySelector("#birds").style.display = "none";
+            document.querySelector("#river").style.display = "none";
+            document.querySelector("#fire").style.display = "block";
+            document.querySelector("#snow").style.display = "none";
+            document.querySelector("#rain").style.display = "none";
+        }
+
+        function snow() {
+            document.querySelector("#birds").style.display = "none";
+            document.querySelector("#river").style.display = "none";
+            document.querySelector("#fire").style.display = "none";
+            document.querySelector("#snow").style.display = "block";
+            document.querySelector("#rain").style.display = "none";
+        }
+
+        function openNav() {
+        document.getElementById("myNav").style.width ="100%";
+       }
+
+       function closeNav(){
+        document.getElementById("myNav").style.width="0%";
+       }
+
+    </script>
+</body>
+</html>

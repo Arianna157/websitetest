@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+
+
+
+    .h1 {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+    #secretContent {display: none;}
+    #gratefullnessEnty {size: 50;}
+    .mycontainer {display: flex;}
+    .mycontainer > div {width: 33%;}
+    .credentials {text-align: center;}
+    .button{ padding: 10px 25px; color: white; background-color: black;}
+    .button:hover{background-color: white; color: black;}
+    #signInButton{ padding: 10px 25px; color: white; background-color: black;}
+    
+    #signInButton:hover{background-color: white; color: black;}
+    #signUpButton{ padding: 10px 25px; color: white; background-color: black;}
+    #signUpButton:hover{background-color: white; color: black;}
+    #forgotPasswordButton{ padding: 10px 25px; color: white; background-color: black;}
+    #forgotPasswordButton:hover{background-color: white; color: black;}
+    #signInOrUpDivContents{ margin-left: 45%; margin-right: 45%;}
+    #showPassword {float: inline-start;}
+    
+    .overlay{
+        height: 100%;
+        width: 0;
+        position:fixed;
+        z-index:1;
+        left:0;
+        top:0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+        overflow-x:hidden;
+        transition:0.5s;
+    }
+
+    .overlay-content{
+        position: relative;
+        top:25%;
+        width:100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .overlay a{
+        padding:8px;
+        text-decoration: none;
+        font-size:36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+        position:absolute;
+        top:20px;
+        left:45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a{font-size: 20px;}
+        .overlay .closebtn {
+            font-size: 40px;
+            top:15px;
+            left:35px;
+        }
+    }
+
+    #menubutton {position: absolute; left: 20px; top: 20px; padding: 8px;}
+
+
+    .menucontainer {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+ 
+body {background-color: rgba(255, 182, 193, 0.41);}
+
+
+
+</style>
+</head>
+<body>
+    <div id="myNav" class="overlay">
+
+        <a href="javascript:void(0)" class="closebtn"
+        onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
+            <a href="index.html">Home</a>
+            <a href="breathe.html">Breathe</a>
+            <a href="play.html">Play</a>
+            <a href="testreflect5.html">Reflect</a>
+            <a href="study2.html">Study</a>
+        </div>
+    </div>
+    
+    <div class="menucontainer" id="menubutton" onclick="openNav()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <div style="background-image: url(pastelsky.png); background-repeat: no-repeat; background-size: cover;">
+        <br>
+        <br>
+        <br>
+        <h1>Reflect</h1>
+    <br>
+    <br> 
+    <br>
+    </div>
+      <br>
+  
+
+
+<div id="authForm">
+<h3>This page is for you to reflect on your day and remember what you can be grateful for</h3>
+<h3>Everday, you can add an entry to your gratefulness journal</h3>
+<h3>You can also look for your past entries</h3>
+<h3>Sign in below to access your journal, or sign up if this is your first time</h3>
+
+<button id="clickSignIn" class="button">Sign in</button>
+<button id="clickSignUp" class="button">Sign Up</button>
+</div>
+
+
+
+
+<div id="signInOrUpDiv" style="display: none; text-align: center; margin: auto;">
+    <h2 id="signInOrUpText"></h2>
+    <div id="signInOrUpDivContents">
+    <input type="email" placeholder="email" id="userEmail" class="credentials" style="display: none"> 
+    <input type="password" placeholder="password" id="userPassword" class="credentials" style="display: none">
+
+   
+    
+    <label for= "showPassword" id="showPasswordLabel" class="credentials"> <input type="checkbox" id="showPassword" > Show Password</label>  
+<br>
+
+    <input type="text" placeholder ="your name" id="userName" style="display: none" class="credentials">
+    <br>
+    <button id="signUpButton" style="display: none" class="credentials">Sign up</button>
+    <button id="signInButton" style="display: none" class="credentials">Sign in</button>
+    <br>
+    <button id="forgotPasswordButton" style="display: none" class="credentials">Forgot password</button>
+</div>
+</div>
+
+
+
+
+
+<div id="secretContent" style="display: none;">
+    
+    
+    <h3 id="findName"></h2>
+
+
+<div id="music">
+<h3> Some music to listen to when you reflect on your day</h3>
+
+<div class="mycontainer">
+
+    <div id="music1">
+<iframe src="https://www.youtube.com/embed/aEo5JkhVLHA" title="Oceans (Where Feet May Fail) - Hillsong United | Instrumental Worship | Fundo Musical" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div id="music2">
+    <iframe src="https://www.youtube.com/embed/VckixVHLBwY" title="Sunset Beach | Sounds for Relaxing, Focus or Deep Sleep | Nature White Noise | 8 Hour Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div id="music3">
+    <iframe src="https://www.youtube.com/embed/ged4PqO2FAU" title="Peace | Soaking Worship Music Into Heavenly Sounds // Instrumental Soaking Worship" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+
+<div id="main">
+<h3>What are you grateful for today?</h3>
+<p> Maybe think about someone you are grateful for </p>
+<p>Or a situation or a place that you are feeling thankful for and why</p>
+<p>It could just be as simple as having food or safe drinking water</p>
+<p>An education, house, even the internet</p>
+<p>Just anything that you appreciated and made you feel happy today 🥰</p>
+<h4>Use the date picker and click on today, and write your entry in the input below. Click enter to record your entry</h4>
+<input id="entryDate" type="date">
+<br>
+<input id="gratefullnessEntry">
+<br>
+<br>
+<button id="insertGratefullnessEntry" class="button"> Enter </button>
+<br>
+<br>
+<div id="gratefullnessEntryLog">
+<h4>Find a gratefulness entry</h4>
+<input id="findEntryDate" type="date">
+<br>
+<button id="findGratefullnessEntry" class="button">Find</button>
+<br>
+<p id="entries"></p>
+<br>
+</div>
+<br>
+<br>
+
+
+<button id="signOutButton" class="button">Sign out</button>
+</div>
+</div>
+
+
+<div id="forgotPasswordDiv" style="display: none;">
+    <h2>Forgot your password?</h2>
+    <h3>Please enter your email</h3>
+    <input type="email" placeholder="email" id="emailForPassword">
+    <button id="sendEmailButton" class="button">Reset Password</button>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width ="100%";
+       }
+
+       function closeNav(){
+        document.getElementById("myNav").style.width="0%";
+       }
+</script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+   // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyB0tjRhgObOU60mQ03UMmbF1vn-LWP5Fmk",
+    authDomain: "tech-website-c15a4.firebaseapp.com",
+    projectId: "tech-website-c15a4",
+    storageBucket: "tech-website-c15a4.appspot.com",
+    databaseURL: "https://tech-website-c15a4-default-rtdb.asia-southeast1.firebasedatabase.app",
+    messagingSenderId: "442554515662",
+    appId: "1:442554515662:web:1a5fe93daf9cf0ce6bd09f"
+  };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase();
+   
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut,
+        sendPasswordResetEmail,
+        confirmPasswordReset,
+        updatePassword,
+        updateProfile,
+        
+    } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+    import {
+        getDatabase,
+        set,
+        get,
+        ref,
+        child,
+        update,
+        remove,
+    } from  "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+    
+    
+
+    const userName = document.querySelector("#userName");
+    var findName = document.querySelector("#findName");
+
+    const userEmail = document.querySelector("#userEmail");
+    const userPassword = document.querySelector("#userPassword");
+    const authForm = document.querySelector("#authForm");
+    const secretContent = document.querySelector("#secretContent");
+    const signUpButton = document.querySelector("#signUpButton");
+    const signInButton = document.querySelector("#signInButton");
+    const signOutButton = document.querySelector("#signOutButton");
+    const sendEmailButton = document.querySelector("#sendEmailButton");
+    const forgotPasswordButton = document.querySelector("#forgotPasswordButton");
+    const forgotPasswordDiv = document.querySelector("#forgotPasswordDiv");
+    const emailForPassword = document.querySelector("#emailforPassword");
+    const clickSignIn = document.querySelector("#clickSignIn");
+    const clickSignUp = document.querySelector("#clickSignUp");
+    const signInDiv = document.querySelector("#signInDiv");
+    const signUpDiv = document.querySelector("#signUpDiv");
+    const signInOrUpDiv = document.querySelector("#signInOrUpDiv");
+    const signInOrUpText = document.querySelector("#signInOrUpText");
+    const insertGratefullnessEntry = document.querySelector("#insertGratefullnessEntry");
+    const gratefullnessEntry = document.querySelector("#gratefullnessEntry");
+    const entryDate = document.querySelector("#entryDate");
+    const findEntryDate = document.querySelector("#findEntryDate");
+    const findGratefullnessEntry = document.querySelector("#findGratefullnessEntry");
+    const gratefullnessEntryLog = document.querySelector("#gratefullnessEntryLog");
+    const showPassword = document.querySelector("#showPassword");
+    const showPasswordLabel = document.querySelector("#showPasswordLabel");
+    
+    let credentials = document.getElementsByClassName('credentials');
+    var fp = 0;
+
+    secretContent.style.display = 'none';
+
+    const showPasswordFunction = async() => {
+    var x = document.getElementById("userPassword");
+    if (x.type === "password") {
+        x.type = 'text';
+    }else {
+        x.type = 'password';
+    }
+}
+
+    const userSignUp = async() =>  {
+        const signUpEmail = userEmail.value;
+        const signUpPassword = userPassword.value;
+        
+        
+
+        
+
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            
+            
+                const userID = auth.currentUser.uid;
+                let root = db;
+            set(ref(db, "Gratefullness/" + userID), {
+            Name:userName.value,});
+            alert("Your account has been created!");
+            console.log(user);
+            
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + errorMessage);
+        alert(errorMessage)
+    })
+    }
+
+
+
+    const userSignIn = async() =>  {
+        const dbref = ref(db);
+        const signInEmail = userEmail.value;
+        const signInPassword = userPassword.value;
+        signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+        .then((userCredential) => {
+            const user = userCredential.user;
+           
+           const userID = auth.currentUser.uid;
+
+           
+
+           get(child(dbref, "Gratefullness/" + userID))
+       .then((snapshot)=>{
+               findName.innerHTML = "Hello " + snapshot.val().Name});
+           alert("You have signed in! ");
+       })
+
+   .catch((error) => {
+       const errorCode = error.code;
+       const errorMessage = error.message;
+       console.log(errorCode + errorMessage);
+       alert(errorMessage);
+   })};
+
+
+
+    const checkAuthState = async() => {
+            onAuthStateChanged(auth, user => {
+                if(user) {
+                    
+                    
+                    authForm.style.display = 'none';
+                    secretContent.style.display = 'block';
+                    forgotPasswordDiv.style.display = 'none';
+                    signInOrUpText.innerHTML="";
+
+                   
+                    
+                    
+                   
+                    for (var i=0; i<credentials.length;i++) {
+                        credentials[i].style.display ='none';
+                    };
+                    const dbref = ref(db);
+                    const userID = user.uid;
+                    gratefullnessEntryLog.style.display ="block";
+                    
+                   
+                    get(child(dbref, "Gratefullness/" + userID))
+                    .then((snapshot)=>{
+                        if (snapshot.exists()) {
+
+                            findName.innerHTML = "Hello " + snapshot.val().Name + ", how are you?";
+                
+                
+  
+            
+            } else {
+                
+                findName.innerHTML = "Hello, how are you?"
+            };
+
+        });
+
+
+
+               
+                    }
+                
+                
+                    
+                    
+                    
+                
+                else {
+                    
+                        authForm.style.display = 'block';
+                    secretContent.style.display = 'none';
+                    gratefullnessEntryLog.style.display ="none";
+                    findName.innerHTML = "";
+                   
+                }
+                    
+                }
+                
+            )
+            
+    }
+            ;
+
+
+        const sendEmailReset = async () => {
+            const emailPassword = document.getElementById("emailForPassword").value;;
+await sendPasswordResetEmail (auth, emailPassword)
+.then(() => alert("password reset email sent") )
+.catch ((error) => console.log(errorMessage));
+}
+
+
+
+
+const forgotPassword = async () => {
+    var fp = 1;
+    authForm.style.display = 'none';
+    
+    forgotPasswordDiv.style.display = 'block';
+}
+
+const signInPage = async () => {
+    authForm.style.display = 'none';
+    signInOrUpDiv.style.display = 'block';
+    signInOrUpText.innerHTML="Sign in";
+    signInButton.style.display = 'block';
+    showPasswordLabel.style.display ='block';
+    showPassword.style.display ='block';
+    forgotPasswordButton.style.display ='block';
+    userEmail.style.display = 'block';
+    userPassword.style.display = 'block';
+
+
+    
+}
+
+const signUpPage = async () => {
+    authForm.style.display = 'none';
+    signInOrUpDiv.style.display = 'block';
+    signInOrUpText.innerHTML="Sign up";
+    signUpButton.style.display = 'block';
+    showPasswordLabel.style.display ='block';
+    showPassword.style.display ='block';
+    userName.style.display = 'block';
+    userEmail.style.display = 'block';
+    userPassword.style.display = 'block';
+    
+    
+}
+
+
+const userSignOut = async() => {
+    await signOut(auth);
+    entries.innerHTML = "";
+}
+
+const insertEntry = async () => {
+    
+    const entry = gratefullnessEntry.value;
+    const date = entryDate.value
+
+            const userID = auth.currentUser.uid;
+
+            if (gratefullnessEntry.value && entryDate.value)
+            {
+
+            
+
+    set(ref(db, "Gratefullness/" +userID +"/" +entryDate.value),{
+       
+            entry:gratefullnessEntry.value});
+    alert("You're entry has been recorded");}
+
+    else {
+        alert("Please make sure you have picked a date and written an entry")
+    }
+};
+
+const findEntry = async () => {
+    const para = document.createElement("p");
+    const dbref = ref(db);
+    const userID = auth.currentUser.uid;
+
+    if(findEntryDate.value) {
+
+        get(child(dbref, "Gratefullness/" + userID + "/" + findEntryDate.value))
+        .then((snapshot)=>{
+            if (snapshot.exists()) {
+                
+                const foundEntry = snapshot.val().entry;
+                entries.innerHTML =  "On the " + findEntryDate.value +" your entry was " + foundEntry;
+  
+            
+            } else {
+                alert("No data found");
+            }
+        })
+        .catch((error)=> {
+            alert(error)
+        })
+        
+
+    } else {
+        alert("Please enter a date")
+    }}
+
+
+
+
+
+checkAuthState();
+
+signUpButton.addEventListener('click', userSignUp);
+signOutButton.addEventListener('click', userSignOut);
+signInButton.addEventListener('click', userSignIn);
+sendEmailButton.addEventListener('click', sendEmailReset);
+forgotPasswordButton.addEventListener('click', forgotPassword);
+clickSignIn.addEventListener('click', signInPage);
+clickSignUp.addEventListener('click', signUpPage);
+insertGratefullnessEntry.addEventListener('click', insertEntry);
+findGratefullnessEntry.addEventListener('click', findEntry);
+showPassword.addEventListener('click', showPasswordFunction);
+
+
+
+
+  </script>
+
+</body>
+</html>
